@@ -1,9 +1,0 @@
-0
-0
-They are as follows:
-\n
-ASSIGNMENTS 1
-\n
-Your current average is: x%
-If you were to get 0% on the rest of your assignments, you would have this as your final grade y%
-If you were to get 100% on the rest of your assignments, you would have this as your final grade y%

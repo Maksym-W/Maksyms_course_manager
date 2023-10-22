@@ -1,4 +1,5 @@
 from os import path
+from decimal import Decimal
 
 """
 The way the files are organized are as follows.
@@ -11,13 +12,14 @@ The rest of the lines are grade, weight, name of assignment
 
 def output_file_data(file_name: str) -> None:
     f = open(file_name, "r")
+    grade = 0
+    num_of_assignments = f.readline().rstrip()
+    total_weight = f.readline().rstrip()
 
-    print("You currently have: " + f.readline().rstrip() + " assessments logged.")
-    print("They make up: " + f.readline().rstrip() + "% of your final grade.")
+    print("You currently have: " + num_of_assignments + " assessments logged.")
+    print("They make up: " + total_weight + "% of your final grade.")
     print("They are as follows:\n")
 
-    total_weight = 0
-    grade = 0
     while True:
         line = f.readline().rstrip()
         if line == "":
@@ -25,15 +27,15 @@ def output_file_data(file_name: str) -> None:
         results = line.split(',')
         print("Name of Assignment: " + results[2] +
               ". Weight of the final grade: " + results[1] +
-              "%. Grade: " + results[0])
-        total_weight += int(results[1])
+              "%. Grade: " + results[0] + "%")
         grade += (int(results[0]) * (int(results[1]) / 100))
 
     print("\n")
+    print("Your current average is: " + str((grade/int(total_weight))*100) + "%")
     print("If you were to get 0% on the rest of your assignments, "
           "you would have this as your final grade: " + str(grade) + "%.")
     print("If you were to get 100% on the rest of your assignments, "
-          "you would have this as your final grade: " + str(grade + (100 - total_weight)) + "%.")
+          "you would have this as your final grade: " + str(grade + (100 - int(total_weight))) + "%.")
 
     f.close()
 
@@ -46,7 +48,7 @@ def input_file_data(file_name: str, assignment: list) -> None:
     # Modify the lines as needed
     lines[0] = str(int(lines[0]) + 1) + "\n"
     lines[1] = str(int(lines[1]) + int(assignment[1])) + "\n"
-    lines.append(assignment[0] + ", " + assignment[1] + ", " + assignment[2])
+    lines.append(assignment[0] + ", " + assignment[1] + ", " + assignment[2] + "\n")
 
     # Open the file in write mode to overwrite its contents
     with open(file_name, 'w') as file:
