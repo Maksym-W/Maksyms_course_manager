@@ -47,7 +47,7 @@ def input_file_data(file_name: str, assignment: list) -> None:
 
     # Modify the lines as needed
     lines[0] = str(int(lines[0]) + 1) + "\n"
-    lines[1] = str(int(lines[1]) + int(assignment[1])) + "\n"
+    lines[1] = str(int(lines[1]) + float(assignment[1])) + "\n"
     lines.append(assignment[0] + ", " + assignment[1] + ", " + assignment[2] + "\n")
 
     # Open the file in write mode to overwrite its contents
