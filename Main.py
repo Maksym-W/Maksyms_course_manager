@@ -28,7 +28,7 @@ def output_file_data(file_name: str) -> None:
         print("Name of Assignment: " + results[2] +
               ". Weight of the final grade: " + results[1] +
               "%. Grade: " + results[0] + "%")
-        grade += (int(results[0]) * (float(results[1]) / 100))
+        grade += (float(results[0]) * (float(results[1]) / 100))
 
     print("\n")
     print("Your current average is: " + str((grade/float(total_weight))*100) + "%")
@@ -47,7 +47,7 @@ def input_file_data(file_name: str, assignment: list) -> None:
 
     # Modify the lines as needed
     lines[0] = str(int(lines[0]) + 1) + "\n"
-    lines[1] = str(int(lines[1]) + float(assignment[1])) + "\n"
+    lines[1] = str(float(lines[1]) + float(assignment[1])) + "\n"
     lines.append(assignment[0] + ", " + assignment[1] + ", " + assignment[2] + "\n")
 
     # Open the file in write mode to overwrite its contents
