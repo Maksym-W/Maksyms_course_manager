@@ -28,14 +28,14 @@ def output_file_data(file_name: str) -> None:
         print("Name of Assignment: " + results[2] +
               ". Weight of the final grade: " + results[1] +
               "%. Grade: " + results[0] + "%")
-        grade += (int(results[0]) * (int(results[1]) / 100))
+        grade += (int(results[0]) * (float(results[1]) / 100))
 
     print("\n")
-    print("Your current average is: " + str((grade/int(total_weight))*100) + "%")
+    print("Your current average is: " + str((grade/float(total_weight))*100) + "%")
     print("If you were to get 0% on the rest of your assignments, "
           "you would have this as your final grade: " + str(grade) + "%.")
     print("If you were to get 100% on the rest of your assignments, "
-          "you would have this as your final grade: " + str(grade + (100 - int(total_weight))) + "%.")
+          "you would have this as your final grade: " + str(grade + (100 - float(total_weight))) + "%.")
 
     f.close()
 
